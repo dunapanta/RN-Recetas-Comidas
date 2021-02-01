@@ -38,3 +38,5 @@ se maneja en un stack of pages y la que se visualiza es la que esta en el tope d
 Es necesario crear Navigators que contiene la configuracion de la navegacion
 Para exportarlo se lo envuelve en createAppContainer
 por defecto al usar StackNavigator se encarga de manejar los knoch de los telefonos
+
+117 Para navegar se hace uso de navigation y el metodo navigate
