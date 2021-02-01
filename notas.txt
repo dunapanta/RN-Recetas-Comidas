@@ -16,3 +16,19 @@ onError={(err) => console.log(err)}
     onFinish={() => setFontLoaded(true)}
     onError={(err) => console.log(err)}
 />
+
+// React Navigation 
+Para este proyecto utilizo React Navigation 4
+
+npm install react-navigation
+
+expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+npm install react-navigation-stack
+import { createStackNavigator } from 'react-navigation-stack';
+
+npm install react-navigation-tabs
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+
+npm install react-navigation-drawer
+import { createDrawerNavigator } from 'react-navigation-drawer';
