@@ -32,3 +32,9 @@ import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 npm install react-navigation-drawer
 import { createDrawerNavigator } from 'react-navigation-drawer';
+
+116 // StackNavigator
+se maneja en un stack of pages y la que se visualiza es la que esta en el tope del stack
+Es necesario crear Navigators que contiene la configuracion de la navegacion
+Para exportarlo se lo envuelve en createAppContainer
+por defecto al usar StackNavigator se encarga de manejar los knoch de los telefonos
