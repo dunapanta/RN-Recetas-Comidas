@@ -1,0 +1,18 @@
+// Instalar loading
+
+expo install expo-app-loading
+
+// Install fetchFonts
+
+expo install expo-font
+
+// using loading
+import AppLoading from 'expo-app-loading';
+// add the prop
+onError={(err) => console.log(err)}
+//
+<AppLoading
+    startAsync={fetchFonts}
+    onFinish={() => setFontLoaded(true)}
+    onError={(err) => console.log(err)}
+/>
