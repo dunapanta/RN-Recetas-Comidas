@@ -8,6 +8,9 @@ const CategoryMealScreen = ({ navigation }) => {
             <Button title="Ver Receta" onPress={ () => {
                 navigation.navigate({ routeName: 'MealDetail'})
             }}/>
+            <Button title="Atras" onPress={ () => {
+                navigation.pop()
+            }}/>
         </View>
     )
 }

@@ -40,3 +40,13 @@ Para exportarlo se lo envuelve en createAppContainer
 por defecto al usar StackNavigator se encarga de manejar los knoch de los telefonos
 
 117 Para navegar se hace uso de navigation y el metodo navigate
+
+121 en casos en que se requiera redirigir atras (ej boton de Guardar)
+navigation.goBack() 
+navigation.pop()
+
+Si se quiere volver al componente padre
+navigation.popToTop()
+
+Si no quiero añadir al stack y en vez quiero reemplazar la pantalla actual con este otro (para login)
+navigation.replace('name')
