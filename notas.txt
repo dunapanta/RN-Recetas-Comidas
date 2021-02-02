@@ -53,3 +53,14 @@ navigation.replace('name')
 
 122 usando Flatlist para renderizar Grids
 keyExtractor={(item, index) => item.id} se lo utiliza para extraer la key si ya tiene id o key entonces no es necesario
+
+123 Agregando titulo a CategoriesScreen
+
+como el componentes es una funcion y en si las funciones son objetos en javascript se puede añadir propiedades
+CategoriesScreen.navigationOptions = {
+    headerTitle: 'Categorías de Comida',
+    headerStyle: {
+        backgroundColor: Colors.primaryColor,
+    },
+    headerTintColor: 'white'
+}
