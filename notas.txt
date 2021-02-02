@@ -64,3 +64,5 @@ CategoriesScreen.navigationOptions = {
     },
     headerTintColor: 'white'
 }
+
+124 Pasar datos por params
