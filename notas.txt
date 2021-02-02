@@ -50,3 +50,6 @@ navigation.popToTop()
 
 Si no quiero añadir al stack y en vez quiero reemplazar la pantalla actual con este otro (para login)
 navigation.replace('name')
+
+122 usando Flatlist para renderizar Grids
+keyExtractor={(item, index) => item.id} se lo utiliza para extraer la key si ya tiene id o key entonces no es necesario
