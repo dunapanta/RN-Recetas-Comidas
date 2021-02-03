@@ -98,3 +98,8 @@ utilizar lo nativo es decir Fragments para Android y UI view Controller en IOS
 
 import { enableScreens } from 'react-native-screens'
 enableScreens()
+
+128 Datos de las comidas
+
+129 Desplegando comidas de una categoria
+MEALS.filter(meal => meal.categoryIds.indexOf(catId) >= 0   --------> da -1 si no hay

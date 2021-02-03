@@ -1,7 +1,7 @@
 class Meal {
     constructor(
         id, 
-        categoryId, 
+        categoryIds, 
         title, 
         affordability, 
         complexity, 
@@ -14,7 +14,7 @@ class Meal {
         isVegetarian, 
         isLactoseFree ) {
             this.id = id
-            this.categoryId = categoryId
+            this.categoryIds = categoryIds
             this.title = title
             this.affordability = affordability
             this.complexity = complexity 
