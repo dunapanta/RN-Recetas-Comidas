@@ -8,11 +8,15 @@ const CategoriesScreen = ({ navigation }) => {
 
     const renderGridItem = (itemData) => {
         return(
-            <CategoryGridTile title={itemData.item.title} onSelect={() => {
+            <CategoryGridTile 
+                title={itemData.item.title} 
+                color={itemData.item.color}
+                onSelect=   {() => {
                 navigation.navigate({ routeName: 'CategoryMeals', params: {
                     categoryId: itemData.item.id
                 } })
-            }}/>
+                }}
+            />
         )
     }
 
