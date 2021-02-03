@@ -66,3 +66,24 @@ CategoriesScreen.navigationOptions = {
 }
 
 124 Pasar datos por params
+
+125 navigationOptions tambien puede ser una 
+funcion para configuraciones dinamicas en que cambian datos en este caso Nombre Categorias
+CategoryMealScreen.navigationOptions = navigationData => {
+    const catId = navigationData.navigation.getParam('categoryId')
+
+    const selectedCategory = CATEGORIES.find(cat => cat.id === catId)
+
+    return {
+        headerTitle: selectedCategory.title,
+        headerStyle: {
+            backgroundColor: Colors.primaryColor,
+        },
+        headerTintColor: 'white'
+    }
+}
+
+126 Agregando navigationOptions a MeealsNavigation para no repetir codigo
+agregando el segundo argumento a createStackNavigator llamado defaultNavigationOptions opciones que se aplican a cada screen
+las especificaciones propias del componente osea añadidas con navigationOptions tienen mas relevancia 
+que las defaultNavigationOption

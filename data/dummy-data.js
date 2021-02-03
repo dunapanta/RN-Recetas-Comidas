@@ -6,7 +6,7 @@ export const CATEGORIES = [
     new Category('c3', 'Hamburguesas', '#f5a442'),
     new Category('c4', 'Ecuatoriana', '#f5d142'),
     new Category('c5', 'Ligero', '#368dff'),
-    new Category('c6', 'Exotico', '#41d95d'),
+    new Category('c6', 'Exótico', '#41d95d'),
     new Category('c7', 'Desayunos', '#9eecff'),
     new Category('c8', 'Asiático', '#b9ffb0'),
     new Category('c9', 'Francesa', '#ffc7ff'),
