@@ -82,7 +82,10 @@ const styleItem = (color ) => StyleSheet.create({
         flex: 1,
         height: 200,
         width: '100%',
-        backgroundColor: color
+        marginBottom: 5,
+        backgroundColor: color,
+        borderRadius: 10,
+        overflow: 'hidden'
     },
 })
 
