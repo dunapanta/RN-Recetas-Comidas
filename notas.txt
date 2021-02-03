@@ -87,3 +87,14 @@ CategoryMealScreen.navigationOptions = navigationData => {
 agregando el segundo argumento a createStackNavigator llamado defaultNavigationOptions opciones que se aplican a cada screen
 las especificaciones propias del componente osea añadidas con navigationOptions tienen mas relevancia 
 que las defaultNavigationOption
+defaultNavigationOptions: {
+        headerStyle: {
+            backgroundColor: Colors.primaryColor,
+        },
+        headerTintColor: 'white'
+
+Tambien se utiliza react-native-screens para asegurar que la navegacion este optimizada al 
+utilizar lo nativo es decir Fragments para Android y UI view Controller en IOS
+
+import { enableScreens } from 'react-native-screens'
+enableScreens()
