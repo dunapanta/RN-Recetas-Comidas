@@ -197,3 +197,6 @@ yarn add react-navigation-material-bottom-tabs
 yarn add react-native-paper
 
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
+
+
+138 Separando lista en componente propio
