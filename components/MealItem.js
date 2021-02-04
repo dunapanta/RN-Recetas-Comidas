@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     },
     titleContainer: {
         backgroundColor: 'rgba(0,0,0,0.6)',
-        paddingVertical: 5,
+        paddingVertical: 6,
         paddingHorizontal: 12,
     },
     mealRow: {
@@ -82,7 +82,7 @@ const styleItem = (color ) => StyleSheet.create({
         flex: 1,
         height: 200,
         width: '100%',
-        marginBottom: 5,
+        marginBottom: 10,
         backgroundColor: color,
         borderRadius: 10,
         overflow: 'hidden'

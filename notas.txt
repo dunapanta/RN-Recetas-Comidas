@@ -105,3 +105,32 @@ enableScreens()
 MEALS.filter(meal => meal.categoryIds.indexOf(catId) >= 0   --------> da -1 si no hay
 
 131 Pasando Datos a Meal Detail Screen
+
+132 Para agregar iconos en el header instalo
+yarn add react-navigation-header-buttons
+yarn add @expo/vector-icons
+creo componente HeaderButton e importo
+import {Ionicons}  from '@expo/vector-icons'
+import { Ionicons }  from '@expo/vector-icons'
+
+<HeaderButton 
+                {...props} 
+                IconComponent={Ionicons} 
+                iconSize={22} 
+                color={Colors.primaryColor}
+            />
+
+En el componente que se va a utilizar se importa
+import { HeaderButtons, Item } from 'react-navigation-header-buttons'
+import HeaderButton from '../components/HeaderButton'
+headerRight: () => (
+        <           HeaderButtons HeaderButtonComponent={HeaderButton}> 
+                        <Item 
+                            title='Favorito' 
+                            iconName='ios-star' 
+                            onPress={ () => {
+                                console.log("Favorito")
+                            }} 
+                        /> 
+                    </HeaderButtons>
+                )
