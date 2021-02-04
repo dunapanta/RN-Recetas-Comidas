@@ -145,3 +145,46 @@ const MealsFavTabNavigator =  createBottomTabNavigator({
 })
 
 export default createAppContainer(MealsFavTabNavigator)
+
+135 Añadir Iconos y Dar estilos a la navigackion por Tabs
+createBottomTabNavigator tambien puede tomar otro argumento para la configuracion del mismo
+se puede añadir tabBarOptions para los estilos
+
+para iconos se utiliza tabBarIcon y queda asi se hace uso de tabInfo.tintColor porque ya se lo definio abajo
+
+tabBarIcon: (tabInfo) => {
+            return <Ionicons 
+                name='ios-restaurant' 
+                size={25}
+                color={tabInfo.tintColor} />
+
+al final queda asi
+
+const MealsFavTabNavigator =  createBottomTabNavigator({
+    Meals: { screen: MealsNavigator, navigationOptions: {
+        tabBarLabel: 'Categorías',
+        tabBarIcon: (tabInfo) => {
+            return (
+                <Ionicons 
+                    name='ios-restaurant' 
+                    size={25}
+                    color={tabInfo.tintColor} />
+                )
+        }
+    }},
+    Favorites: {screen: FavoritesScreen, navigationOptions:{
+        tabBarLabel: 'Favoritos',
+        tabBarIcon: (tabInfo) => {
+            return (
+                <Ionicons 
+                    name='ios-star' 
+                    size={25}
+                    color={tabInfo.tintColor} />
+                )
+        }
+    }}
+}, {
+    tabBarOptions: {
+        activeTintColor: Colors.secondaryColor
+    }
+})
