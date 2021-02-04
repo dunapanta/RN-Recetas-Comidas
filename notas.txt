@@ -188,3 +188,12 @@ const MealsFavTabNavigator =  createBottomTabNavigator({
         activeTintColor: Colors.secondaryColor
     }
 })
+
+
+The navigationOptions you set on the navigator will NOT be used in its screens! That's the difference to defaultNavigationOptions - those option WILL be merged with the screens.
+
+137 Mejorar Estilos de Tab Navigation en Android, instalo 
+yarn add react-navigation-material-bottom-tabs
+yarn add react-native-paper
+
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
