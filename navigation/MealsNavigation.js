@@ -12,6 +12,7 @@ import MealDetailScreen from '../screens/MealDetailScreen'
 import FavoritesScreen from '../screens/FavoritesScreen'
 
 import Colors from '../constants/Colors'
+import FavoriteScreen from '../screens/FavoritesScreen';
 
 // configure the screens que want to move between with key value pairs
 const MealsNavigator = createStackNavigator({
@@ -32,6 +33,19 @@ const MealsNavigator = createStackNavigator({
     }
 })
 
+const FavoritesNavigator = createStackNavigator({
+    Favorites: FavoriteScreen,
+    MealDetail: MealDetailScreen
+}, {
+    // initialRouteName: 'Categories'
+    defaultNavigationOptions: {
+        headerStyle: {
+            backgroundColor: Colors.secondaryColor,
+        },
+        headerTintColor: 'white'
+    }
+})
+
 const tabScreenConfig = {
         Meals: { screen: MealsNavigator, navigationOptions: {
             tabBarLabel: 'Categorías',
@@ -45,7 +59,7 @@ const tabScreenConfig = {
             },
             tabBarColor: Colors.primaryColor
         }},
-        Favorites: {screen: FavoritesScreen, navigationOptions:{
+        Favorites: {screen: FavoritesNavigator, navigationOptions:{
             tabBarLabel: 'Favoritos',
             tabBarIcon: (tabInfo) => {
                 return (
