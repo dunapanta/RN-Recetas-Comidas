@@ -134,3 +134,14 @@ headerRight: () => (
                         /> 
                     </HeaderButtons>
                 )
+
+134 Navegacion por Tabs importo en MealsNavigation.js
+import { createBottomTabNavigator } from 'react-navigation-tabs'
+puedo usar MealsNavigator como tab es decir  toda la ruta que ya implemente antes se puede añadir como tab queda asi
+
+const MealsFavTabNavigator =  createBottomTabNavigator({
+    Meals: MealsNavigator,
+    Favorites: FavoritesScreen
+})
+
+export default createAppContainer(MealsFavTabNavigator)
