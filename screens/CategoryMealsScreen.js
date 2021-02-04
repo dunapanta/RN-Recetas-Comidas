@@ -20,7 +20,14 @@ const CategoryMealScreen = ({ navigation }) => {
                 affordability={itemData.item.affordability}
                 image={itemData.item.imageUrl}
                 color={selectedCategory.color}
-                onSelectMeal={() => {}}
+                onSelectMeal={() => {
+                    navigation.navigate({
+                        routeName: 'MealDetail',
+                        params: {
+                            mealId: itemData.item.id
+                        }
+                    })
+                }}
             />
         )
     }

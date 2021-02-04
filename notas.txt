@@ -103,3 +103,5 @@ enableScreens()
 
 129 Desplegando comidas de una categoria
 MEALS.filter(meal => meal.categoryIds.indexOf(catId) >= 0   --------> da -1 si no hay
+
+131 Pasando Datos a Meal Detail Screen
