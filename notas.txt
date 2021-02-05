@@ -200,3 +200,32 @@ import { createMaterialBottomTabNavigator } from 'react-navigation-material-bott
 
 
 138 Separando lista en componente propio
+
+139 Agregando un SideDraw Navegacion se importa importar 
+import { createDrawerNavigator } from 'react-navigation-drawer'
+
+En MealsNavigation se cambia la navegacion principal
+
+const MainNavigator = createDrawerNavigator({
+    Tabs: MealsFavTabNavigator,
+    Filters: FilterNavigator
+
+})
+
+para que se abra y cierre automaticamente se debe añadir
+FilterScreen.navigationOptions = (navData) => {
+    return {
+        headerTitle: 'Filtros',
+        headerLeft: () => (
+            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                <Item 
+                    title="Menú" 
+                    iconName='ios-menu' 
+                    onPress={() => {
+                    navData.navigation.toggleDrawer()
+                    }} />
+            </HeaderButtons>
+        )
+
+    }
+}

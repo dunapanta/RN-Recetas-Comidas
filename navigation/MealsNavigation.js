@@ -5,14 +5,15 @@ import { createAppContainer } from 'react-navigation'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { Ionicons } from '@expo/vector-icons'
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
+import { createDrawerNavigator } from 'react-navigation-drawer'
 
 import CategoriesScreen from '../screens/CategoriesScreen'
 import CategoryMealsScreen from '../screens/CategoryMealsScreen'
 import MealDetailScreen from '../screens/MealDetailScreen'
 import FavoritesScreen from '../screens/FavoritesScreen'
+import FilterScreen from '../screens/FiltersScreen'
 
 import Colors from '../constants/Colors'
-import FavoriteScreen from '../screens/FavoritesScreen';
 
 // configure the screens que want to move between with key value pairs
 const MealsNavigator = createStackNavigator({
@@ -34,7 +35,7 @@ const MealsNavigator = createStackNavigator({
 })
 
 const FavoritesNavigator = createStackNavigator({
-    Favorites: FavoriteScreen,
+    Favorites: FavoritesScreen,
     MealDetail: MealDetailScreen
 }, {
     // initialRouteName: 'Categories'
@@ -86,4 +87,15 @@ const MealsFavTabNavigator =
         }
 })
 
-export default createAppContainer(MealsFavTabNavigator)
+//pongo de esta manera para poder agregar el header
+const FilterNavigator = createStackNavigator({
+    Filters: FilterScreen
+})
+
+const MainNavigator = createDrawerNavigator({
+    Tabs: MealsFavTabNavigator,
+    Filters: FilterNavigator
+
+})
+
+export default createAppContainer(MainNavigator)

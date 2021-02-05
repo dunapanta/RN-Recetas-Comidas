@@ -1,8 +1,10 @@
 import React from 'react'
-import { View,  Text,  Button, StatusBar, FlatList, StyleSheet, TouchableOpacity } from 'react-native'
+import { FlatList, StyleSheet, TouchableOpacity } from 'react-native'
+import { HeaderButtons, Item } from 'react-navigation-header-buttons'
 
 import { CATEGORIES } from '../data/dummy-data'
 import CategoryGridTile from '../components/CategoryGridTile'
+import HeaderButton from '../components/HeaderButton'
 
 const CategoriesScreen = ({ navigation }) => {
 
@@ -30,9 +32,25 @@ const CategoriesScreen = ({ navigation }) => {
     )
 }
 
-CategoriesScreen.navigationOptions = {
-    headerTitle: 'Categorías de Comida',
+CategoriesScreen.navigationOptions = (navData) => {
+    return {
+        headerTitle: 'Categorías de Comida',
+        headerLeft: () => (
+            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                <Item 
+                    title="Menú" 
+                    iconName='ios-menu' 
+                    onPress={() => {
+                    navData.navigation.toggleDrawer()
+                    }} />
+            </HeaderButtons>
+        )
+    }
 }
+/* LogBox.ignoreAllLogs(true);
+LogBox.ignoreLogs(...) 
+console.disableYellowBox = true;*/
+console.disableYellowBox = true;
 
 const styles = StyleSheet.create({
 screen:{

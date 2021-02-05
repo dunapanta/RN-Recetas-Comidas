@@ -1,10 +1,12 @@
 import React from 'react'
 import { View,  Text, StyleSheet } from 'react-native'
 import MealList from '../components/MealList'
+import { HeaderButtons, Item } from 'react-navigation-header-buttons'
 
 import MeatList from '../components/MealList'
 import { MEALS } from '../data/dummy-data'
 import Colors from '../constants/Colors'
+import HeaderButton from '../components/HeaderButton'
 
 const FavoriteScreen = ({ navigation }) => {
 
@@ -19,8 +21,21 @@ const FavoriteScreen = ({ navigation }) => {
     )
 }
 
-FavoriteScreen.navigationOptions = {
-    headerTitle: 'Recetas Favoritas'
+FavoriteScreen.navigationOptions = (navData) => {
+    return {
+        headerTitle: 'Recetas Favoritas',
+        headerLeft: () => (
+            <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                <Item 
+                    title="Menú" 
+                    iconName='ios-menu' 
+                    onPress={() => {
+                    navData.navigation.toggleDrawer()
+                    }} />
+            </HeaderButtons>
+        )
+
+    }
 }
 
 
