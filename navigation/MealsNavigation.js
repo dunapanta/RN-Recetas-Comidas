@@ -1,5 +1,5 @@
 import React from 'react'
-import { Platform } from 'react-native'
+import { Platform, Text } from 'react-native'
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
@@ -30,6 +30,9 @@ const MealsNavigator = createStackNavigator({
         headerStyle: {
             backgroundColor: Colors.primaryColor,
         },
+        headerTitleStyle: {
+            fontFamily: 'open-sans-bold'
+        },
         headerTintColor: 'white'
     }
 })
@@ -43,7 +46,10 @@ const FavoritesNavigator = createStackNavigator({
         headerStyle: {
             backgroundColor: Colors.secondaryColor,
         },
-        headerTintColor: 'white'
+        headerTintColor: 'white',
+        headerTitleStyle: {
+            fontFamily: 'open-sans-bold'
+        }
     }
 })
 
@@ -58,7 +64,8 @@ const tabScreenConfig = {
                         color={tabInfo.tintColor} />
                     )
             },
-            tabBarColor: Colors.primaryColor
+            tabBarColor: Colors.primaryColor,
+            tabBarLabel: Platform.OS === 'android' ? <Text style={{ fontFamily: 'open-sans-bold' }}>Categorías</Text>: 'Comidas'
         }},
         Favorites: {screen: FavoritesNavigator, navigationOptions:{
             tabBarLabel: 'Favoritos',
@@ -70,7 +77,8 @@ const tabScreenConfig = {
                         color={tabInfo.tintColor} />
                     )
             },
-            tabBarColor: Colors.secondaryColor
+            tabBarColor: Colors.secondaryColor,
+            tabBarLabel: Platform.OS === 'android' ? <Text style={{ fontFamily: 'open-sans-bold' }}>Favoritos</Text>: 'Favoritos'
         }}
 }
 
@@ -80,9 +88,13 @@ const MealsFavTabNavigator =
             activeColor: 'white',
             shifting: true,
             //barStyle: { backgroundColor: Colors.secondaryColor}
+            
         }) 
         :  createBottomTabNavigator( tabScreenConfig, {
         tabBarOptions: {
+            labelStyle:{
+                fontFamily: 'open-sans-bold'
+            },
             activeTintColor: Colors.secondaryColor
         }
 })
@@ -95,7 +107,14 @@ const FilterNavigator = createStackNavigator({
         headerStyle: {
             backgroundColor: Colors.primaryColor,
         },
-        headerTintColor: 'white'
+        headerTintColor: 'white',
+        headerTitleStyle: {
+            fontFamily: 'open-sans-bold'
+        },
+        /* headerBackTitleStyle: {
+            fontFamily: 'open-sans'
+        } */
+        
     },
     navigationOptions:{
         drawerLabel: 'Configurar Filtros'

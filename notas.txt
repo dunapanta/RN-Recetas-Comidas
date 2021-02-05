@@ -229,3 +229,5 @@ FilterScreen.navigationOptions = (navData) => {
 
     }
 }
+
+141 Aplicando estilos a los textos
