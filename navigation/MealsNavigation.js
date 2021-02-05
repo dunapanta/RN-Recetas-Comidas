@@ -90,11 +90,37 @@ const MealsFavTabNavigator =
 //pongo de esta manera para poder agregar el header
 const FilterNavigator = createStackNavigator({
     Filters: FilterScreen
+},  {
+    defaultNavigationOptions: {
+        headerStyle: {
+            backgroundColor: Colors.primaryColor,
+        },
+        headerTintColor: 'white'
+    },
+    navigationOptions:{
+        drawerLabel: 'Configurar Filtros'
+    }
 })
 
 const MainNavigator = createDrawerNavigator({
-    Tabs: MealsFavTabNavigator,
+    Tabs: {
+        screen: MealsFavTabNavigator,
+        navigationOptions: {
+            drawerLabel: 'Comidas'
+        }
+    },
     Filters: FilterNavigator
+
+},{
+    contentOptions: {
+        activeTintColor: Colors.secondaryColor,  
+        activeBackgroundColor : Colors.primaryColor,
+        labelStyle: {
+            fontFamily: 'open-sans-bold',
+            fontSize: 20
+        }
+    },
+    drawerBackgroundColor: Colors.ligtherColor
 
 })
 
