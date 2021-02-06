@@ -69,7 +69,9 @@ image:{
 details:{
     flexDirection: 'row',
     padding: 15,
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    backgroundColor: '#e6ee9c',
+    marginBottom: 10
 },
 title: {
     fontFamily: 'open-sans-bold',
