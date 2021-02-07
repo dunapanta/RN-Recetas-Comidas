@@ -335,3 +335,60 @@ const mealTitle = navigationData.navigation.getParam('mealTitle')
 
 - pasar los datos del componente anterior es decir si vengo de CategoryMealsScreen o de FavoritesScreen paso el titulo a MealDetailScreen
 como en los dos se utiliza MealList simplemente agrego unnuevo campo mealTitle queda asi
+
+154 Despachar Actions y Logica del Reducer
+
+creo un nuevo archivo dentro de actions
+las constantes de las define con mayusculas
+export const TOGGLE_FAVORITE = 'TOGGLE_FAVORITE'
+
+en el caso que la action requiera un payload por eso se lo define como objeto
+
+export const taggleFavorite = (id) => {
+    return {
+        type: TOGGLE_FAVORITE, mealId: id
+    }
+}
+
+ahora se lo utiliza en el reducer utilizando sentencia switch - nota default de switch se lo busca cuando la apicacion comienza y redux store es inicializado
+queda asi 
+
+switch (action.type) {
+        case TOGGLE_FAVORITE:
+            const existingIndex = state.favoriteMeals.findIndex( meal => meal.id === action.mealId) // retorna -1 no esta
+            if (existingIndex >= 0 ){
+                //si entra aqui hay que quitarlo la comida del array
+                const updatedFavMeals = [...state.favoriteMeals] // importante crear copia del array
+                updatedFavMeals.splice(existingIndex, 1)
+                return {
+                    ...state,
+                    favoriteMeals: updatedFavMeals
+                }
+            }else{
+                const meal = state.meals.find(meal => meal.id === action.mealId)
+                return{
+                    ...state,
+                    favoriteMeals: state.favoriteMeals.concat(meal) //concat añade un elemento y retorna un nuevo array
+                }
+            }
+        default:
+            return;
+
+- Ahora para despachar la action para que se ejecute la logica del reducer
+se debe ejecutar al presionar la estrella
+
+SE HACE USO DE useDispatch
+import { useSelector, useDispatch } from 'react-redux'
+
+como el botton de estrella esta en NavigationOptions y los hooks solo se pueden usuar en componentes funcionales u otros hooks va a tocar pasarle por params
+
+entonces primero saber que para despachar necesitamos la action a despachar por lo que se debe importar y tambien se utiliza useCallback
+
+ const dispatch = useDispatch()
+    const toggleFavoriteHandler = useCallback(() => {
+        dispatch(toggleFavorite(mealId))
+    }, [dispatch, mealId])
+
+    useEffect( () => {
+        navigation.setParams({toggleFav: toggleFavoriteHandler})
+    }, [toggleFavoriteHandler])
