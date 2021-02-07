@@ -233,3 +233,42 @@ FilterScreen.navigationOptions = (navData) => {
 141 Aplicando estilos a los textos
 
 144 Utilizando Switch
+
+145 Pasar Datos en FilterScreen pasar datos del componente a navigationOptions
+se utiliza params, para establecer los parametros
+
+const saveFilters = () => {
+        const appliedFilters = {
+            glutenFree: isGlutenFree,
+            vegetarian: isVegetarian,
+            vegan: isVegan,
+            lactoseFree: isLactose
+        }
+
+        console.log(appliedFilters)
+    }
+
+    useEffect( () => {
+        // update the params values for the currently loaded screen
+        navigation.setParams({
+            save: saveFilters
+        })
+    }, [saveFilters, navigation])
+
+para usarlos
+
+    navData.navigation.getParam('save')()
+
+PARA ASEGURARSE QUE saveFilters solo se actualiza cuando el estado cambia se hace uso de useCallback
+permite envolver a una funcion y que sea cacheada por React y solamente se la recrea si sus dependencias cambian
+
+      const saveFilters = useCallback( () => {
+        const appliedFilters = {
+            glutenFree: isGlutenFree,
+            vegetarian: isVegetarian,
+            vegan: isVegan,
+            lactoseFree: isLactose
+        }
+
+        console.log(appliedFilters)
+    }, [isGlutenFree, isVegetarian, isVegan, isLactose])
