@@ -272,3 +272,44 @@ permite envolver a una funcion y que sea cacheada por React y solamente se la re
 
         console.log(appliedFilters)
     }, [isGlutenFree, isVegetarian, isVegan, isLactose])
+
+
+151 CONFIGURACION DE REDUX
+
+ - yarn add react react-redux
+ - creo carpeta store para la configuracion
+ - dentro de store creo carpeta actions y reducers
+
+ - dentro de reducers creo meals.js donde estara la logica de actualizar el state
+
+ import { MEALS } from '../../data/dummy-data'
+
+const initialState = {
+    meals: MEALS,
+    filteredMeals: MEALS,
+    favoriteMeals: []
+}
+
+
+const mealsReducer = (state = initialState, action) => {
+    return state
+}
+
+export default mealsReducer
+
+- En App.js importo
+
+import { createStore, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
+
+import MealsNavigator from './navigation/MealsNavigation'
+
+const rootReducer = combineReducers({
+  meals: mealsReducer
+})
+
+const store = createStore(rootReducer)
+
+<Provider store={store}>
+    <MealsNavigator />
+</Provider>

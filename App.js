@@ -3,9 +3,19 @@ import React , { useState } from 'react';
 import { StyleSheet, StatusBar, Text, View } from 'react-native';
 import * as Font from 'expo-font'
 import AppLoading from 'expo-app-loading'
+import { createStore, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
 
 import MealsNavigator from './navigation/MealsNavigation'
 import Colors from './constants/Colors'
+import mealsReducer from './store/reducers/meals'
+
+
+const rootReducer = combineReducers({
+  meals: mealsReducer
+})
+
+const store = createStore(rootReducer)
 
 const fetchFonts = async () => {
   await Font.loadAsync({
@@ -28,7 +38,9 @@ export default function App() {
   return (
     <>
     <StatusBar barStyle="light-content" backgroundColor={Colors.darkerColor} />
-    <MealsNavigator />
+    <Provider store={store}>
+      <MealsNavigator />
+    </Provider>
     </>
   );
 }
