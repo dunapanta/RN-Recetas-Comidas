@@ -313,3 +313,12 @@ const store = createStore(rootReducer)
 <Provider store={store}>
     <MealsNavigator />
 </Provider>
+
+
+152 Seleccionando pedazos del State
+en CategoryMealsScreen me deshago de MEALS que contenia todas las comidas y utilizo el state global
+utilizo el hook useSelector porque se puede utilizar en componentes funcionales otra alternativa es usar connect, envolver la exportacion con ello y utilizar mapStateToProps y mapDispatchToProps
+
+import { useSelector } from 'react-redux'
+
+const availableMeals = useSelector( state => state.meals.filteredMeals )
