@@ -322,3 +322,16 @@ utilizo el hook useSelector porque se puede utilizar en componentes funcionales 
 import { useSelector } from 'react-redux'
 
 const availableMeals = useSelector( state => state.meals.filteredMeals )
+
+153 Pasando datos del componente anterior a Navigation Options o usando Redux y useEffect
+
+- se puede resolver con params lo que se le pase a la funcion se va a unir con los otros parametros ya existentes no se sobreescribe
+useEffect( () => {
+        navigation.setParams({ mealTitle: selectedMeal.title})
+    },[selectedMeal])
+
+y en navigationOptions
+const mealTitle = navigationData.navigation.getParam('mealTitle')
+
+- pasar los datos del componente anterior es decir si vengo de CategoryMealsScreen o de FavoritesScreen paso el titulo a MealDetailScreen
+como en los dos se utiliza MealList simplemente agrego unnuevo campo mealTitle queda asi
