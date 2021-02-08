@@ -27,6 +27,14 @@ const MealDetailScreen = ({ navigation }) => {
         navigation.setParams({toggleFav: toggleFavoriteHandler})
     }, [toggleFavoriteHandler])
 
+    // Cambiar icono de estrella si es comida favorita o no
+    const currentMealIsFavorite =  useSelector(state => 
+        state.meals.favoriteMeals.some(meal => meal.id === mealId)) //devuelve true si algun elemento cumple la 
+        
+    useEffect( () => {
+        navigation.setParams({isFav: currentMealIsFavorite})
+    }, [currentMealIsFavorite])
+
     // Para pasar el titulo a navigationOptions
     /* useEffect( () => {
         navigation.setParams({ mealTitle: selectedMeal.title})
@@ -66,14 +74,15 @@ MealDetailScreen.navigationOptions = (navigationData) => {
     const mealTitle = navigationData.navigation.getParam('mealTitle')
     //For dispatch
     const toggleFavorite = navigationData.navigation.getParam('toggleFav')
-
+    //para cambiar el icono de estrella
+    const isFavorite = navigationData.navigation.getParam('isFav')
     return{
         headerTitle: mealTitle,
         headerRight: () => (
         <           HeaderButtons HeaderButtonComponent={HeaderButton}> 
                         <Item 
                             title='Favorito' 
-                            iconName='ios-star' 
+                            iconName={isFavorite ? 'ios-star' : 'ios-star-outline'}
                             onPress={toggleFavorite} 
                         /> 
                     </HeaderButtons>

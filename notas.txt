@@ -392,3 +392,16 @@ entonces primero saber que para despachar necesitamos la action a despachar por 
     useEffect( () => {
         navigation.setParams({toggleFav: toggleFavoriteHandler})
     }, [toggleFavoriteHandler])
+
+155 Cambiar estrella si es comida favorita o no
+
+denuevo en componente MealList devo pasarlo por params para que se pase de una igual uso useSelector
+
+ const favoriteMeals = useSelector(state => state.meals.favoriteMeals)
+
+ const isFavorite = favoriteMeals.some(meal => meal.id === itemData.item.id)
+
+ params: {
+                            mealId: itemData.item.id,
+                            mealTitle: itemData.item.title,
+                           
