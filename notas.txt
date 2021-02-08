@@ -407,3 +407,8 @@ denuevo en componente MealList devo pasarlo por params para que se pase de una i
                            
 
 156 Si no hay comidas favoritas mostrar un fallback
+
+157 Estableciendo Filtros
+
+- primero creo la constante y la action
+- creo la logica del reducer
