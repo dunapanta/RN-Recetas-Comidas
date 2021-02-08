@@ -12,6 +12,14 @@ const FavoriteScreen = ({ navigation }) => {
 
    /*  const favMeals = availableMeals.filter(meal => meal.id === 'm1' || meal.id === 'm2') */
 
+   if (favMeals.length === 0 || !favMeals){
+    return (
+        <View style={styles.content}>
+            <Text style={styles.text}>Aún no has añadido tus comidas favoritas</Text>
+        </View>
+    )
+   }
+
     return (
         <MealList 
             listData={favMeals}
@@ -38,5 +46,16 @@ FavoriteScreen.navigationOptions = (navData) => {
     }
 }
 
+const styles = StyleSheet.create({
+    content: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    text: {
+        fontFamily: 'open-sans',
+        fontSize: 16
+    }
+})
 
 export default FavoriteScreen

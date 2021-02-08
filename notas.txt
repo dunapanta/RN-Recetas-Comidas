@@ -405,3 +405,5 @@ denuevo en componente MealList devo pasarlo por params para que se pase de una i
                             mealId: itemData.item.id,
                             mealTitle: itemData.item.title,
                            
+
+156 Si no hay comidas favoritas mostrar un fallback
