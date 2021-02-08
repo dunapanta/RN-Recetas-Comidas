@@ -1,9 +1,11 @@
 import React,{ useState, useEffect, useCallback } from 'react'
 import { View,  Text, StyleSheet, Switch } from 'react-native'
 import { HeaderButtons, Item } from 'react-navigation-header-buttons'
+import { useDispatch } from 'react-redux'
 
 import HeaderButton from '../components/HeaderButton'
 import FilterSwich from '../components/FIlterSwitch'
+import { setFilters } from '../store/actions/meals'
 
 const FilterScreen = ({ navigation }) => {
 
@@ -11,6 +13,8 @@ const FilterScreen = ({ navigation }) => {
     const [isVegetarian, setIsVegetarian] = useState(false)
     const [isVegan, setIsVegan] = useState(false)
     const [isLactose, setIsLactose] = useState(false)
+
+    const dispatch = useDispatch()
 
     // function will be cached by react and is only recreted if its dependencies changed
     const saveFilters = useCallback( () => {
@@ -22,7 +26,10 @@ const FilterScreen = ({ navigation }) => {
         }
 
         console.log(appliedFilters)
-    }, [isGlutenFree, isVegetarian, isVegan, isLactose])
+        dispatch(setFilters(appliedFilters))
+        navigation.navigate('Categories');
+        
+    }, [isGlutenFree, isVegetarian, isVegan, isLactose, dispatch])
 
     useEffect( () => {
         // update the params values for the currently loaded screen
