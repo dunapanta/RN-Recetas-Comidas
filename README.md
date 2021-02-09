@@ -12,7 +12,7 @@
 * Trabajar con Redux para el Manejo de estado
 
 ## Como Ejecutar
-* Ejecuta `cd RN-Adivinar-Numero`
+* Ejecuta `cd RN-Recetas-Comida`
 * Ejecuta `yarn install` o `expo install`
 * Ejecuta `yarn start` o `expo start`
 
